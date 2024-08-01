@@ -22,13 +22,35 @@ function activate(context) {
 
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World from lofi-mix!');
+		const panel = vscode.window.createWebviewPanel(
+			'lofi-mix', // Identifies the type of the webview. Used internally
+			'lofi-mix', // Title of the panel displayed to the user
+			vscode.ViewColumn.One, // Editor column to show the new webview panel in.
+			{} // Webview options.
+		);
+
+		panel.webview.html = getWebViewContent();
 	});
 
 	context.subscriptions.push(disposable);
 }
 
+const getWebViewContent = () => {
+	return `<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lofi-mix</title>
+	</head>
+		<body>
+			<h1>Hello World!</h1>
+		</body>
+</html>`;
+}
+
 // This method is called when your extension is deactivated
-function deactivate() {}
+function deactivate() { }
 
 module.exports = {
 	activate,
