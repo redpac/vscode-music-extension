@@ -11,32 +11,50 @@ class LofiMixViewProvider {
         console.log('Resolving webview view');
         try {
             this._view = webviewView;
-    
+
             webviewView.webview.options = {
                 enableScripts: true,
                 localResourceRoots: [this._extensionUri]
             };
-    
+
             webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
-    
+
             this._setWebviewMessageListener(webviewView.webview);
         }
         catch (error) {
             console.error('Error resolving webview view', error);
         }
     }
+    _setWebviewMessageListener(webview) {
+        webview.onDidReceiveMessage(
+            message => {
+                switch (message.type) {
+                    case 'error':
+                        vscode.window.showErrorMessage(message.message);
+                        return;
+                }
+            },
+            undefined,
+            this._disposables
+        );
+    }
 
     _getHtmlForWebview(webview) {
         console.log('Getting HTML for webview');
         try {
-        const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'media', 'main.js'));
-        const styleUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'media', 'style.css'));
+            const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'media', 'main.js'));
+            const styleUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'media', 'style.css'));
 
-        // Get the list of track files
-        const tracksDir = path.join(this._extensionUri.fsPath, 'media', 'tracks');
-        const tracks = fs.readdirSync(tracksDir).filter(file => file.endsWith('.mp3'));
+            // Get the list of track files
+            const tracksDir = path.join(this._extensionUri.fsPath, 'media', 'tracks');
+            const tracks = fs.readdirSync(tracksDir).filter(file => file.endsWith('.mp3'));
 
-        return `
+            // Create URIs for each track
+            const trackUris = tracks.map(track =>
+                webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'media', 'tracks', track))
+            );
+
+            return `
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -49,7 +67,7 @@ class LofiMixViewProvider {
                 <h1>Lofi Mix</h1>
                 <div id="track-list">
                     ${tracks.map((track, index) => `
-                        <div class="track" data-index="${index}">
+                        <div class="track" data-index="${index}" data-uri="${trackUris[index]}">
                             <span class="track-name">${track.replace('.mp3', '')}</span>
                         </div>
                     `).join('')}
@@ -59,6 +77,7 @@ class LofiMixViewProvider {
                     <button id="play-pause">Play</button>
                     <button id="next">Next</button>
                 </div>
+                <audio id="audio-player"></audio>
                 <script src="${scriptUri}"></script>
             </body>
             </html>

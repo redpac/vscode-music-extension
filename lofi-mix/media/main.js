@@ -1,16 +1,15 @@
 (function() {
-    try {
     const vscode = acquireVsCodeApi();
-
     let currentTrack = 0;
     let isPlaying = false;
-    const audio = new Audio();
+    const audioPlayer = document.getElementById('audio-player');
+    const tracks = Array.from(document.querySelectorAll('.track'));
 
     document.getElementById('play-pause').addEventListener('click', togglePlayPause);
     document.getElementById('prev').addEventListener('click', playPrevious);
     document.getElementById('next').addEventListener('click', playNext);
 
-    document.querySelectorAll('.track').forEach(track => {
+    tracks.forEach(track => {
         track.addEventListener('click', () => {
             currentTrack = parseInt(track.dataset.index);
             playTrack();
@@ -19,7 +18,7 @@
 
     function togglePlayPause() {
         if (isPlaying) {
-            audio.pause();
+            audioPlayer.pause();
             isPlaying = false;
             document.getElementById('play-pause').textContent = 'Play';
         } else {
@@ -28,28 +27,31 @@
     }
 
     function playTrack() {
-        const tracks = document.querySelectorAll('.track');
-        const trackName = tracks[currentTrack].querySelector('.track-name').textContent;
-        audio.src = `${vscode.getState().extensionUri}/media/tracks/${trackName}.mp3`;
-        audio.play();
-        isPlaying = true;
-        document.getElementById('play-pause').textContent = 'Pause';
+        const track = tracks[currentTrack];
+        const trackUri = track.dataset.uri;
+        console.log('Playing track:', trackUri);
+        audioPlayer.src = trackUri;
+        audioPlayer.play().then(() => {
+            isPlaying = true;
+            document.getElementById('play-pause').textContent = 'Pause';
+        }).catch(error => {
+            console.error('Error playing audio:', error);
+            vscode.postMessage({ type: 'error', message: 'Failed to play audio: ' + error.message });
+        });
     }
 
     function playPrevious() {
-        currentTrack = (currentTrack - 1 + document.querySelectorAll('.track').length) % document.querySelectorAll('.track').length;
+        currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
         playTrack();
     }
 
     function playNext() {
-        currentTrack = (currentTrack + 1) % document.querySelectorAll('.track').length;
+        currentTrack = (currentTrack + 1) % tracks.length;
         playTrack();
     }
 
-    // Initialize state
-    vscode.setState({ extensionUri: document.body.dataset.extensionUri });
-}
-catch (error) {
-    console.error('Error in main.js', error);
-}
+    // Initialize
+    if (tracks.length > 0) {
+        playTrack();
+    }
 })();
