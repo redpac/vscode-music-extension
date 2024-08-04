@@ -55,33 +55,43 @@ class LofiMixViewProvider {
             );
 
             return `
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Lofi Mix</title>
-                <link href="${styleUri}" rel="stylesheet">
-            </head>
-            <body>
-                <h1>Lofi Mix</h1>
-                <div id="track-list">
-                    ${tracks.map((track, index) => `
-                        <div class="track" data-index="${index}" data-uri="${trackUris[index]}">
-                            <span class="track-name">${track.replace('.mp3', '')}</span>
-                        </div>
-                    `).join('')}
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Lofi Mix</title>
+            <link href="${styleUri}" rel="stylesheet">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+        </head>
+        <body>
+            <h1>Lofi Mix</h1>
+            <div id="track-list">
+                ${tracks.map((track, index) => `
+                    <div class="track" data-index="${index}" data-uri="${trackUris[index]}">
+                        <span class="track-name">${track.replace('.mp3', '')}</span>
+                    </div>
+                `).join('')}
+            </div>
+            <div id="player-controls">
+                <div id="progress-bar">
+                    <div id="progress"></div>
                 </div>
-                <div id="player-controls">
-                    <button id="prev">Previous</button>
-                    <button id="play-pause">Play</button>
-                    <button id="next">Next</button>
+                <div id="time-display">
+                    <span id="current-time">00:00</span>
+                    <span id="total-time">00:00</span>
                 </div>
-                <audio id="audio-player"></audio>
-                <script src="${scriptUri}"></script>
-            </body>
-            </html>
-        `;
+                <div id="control-buttons">
+                    <button id="prev"><i class="fas fa-step-backward"></i></button>
+                    <button id="play-pause"><i class="fas fa-play"></i></button>
+                    <button id="next"><i class="fas fa-step-forward"></i></button>
+                </div>
+            </div>
+            <audio id="audio-player"></audio>
+            <script src="${scriptUri}"></script>
+        </body>
+        </html>
+    `;
         }
         catch (error) {
             console.error('Error getting HTML for webview', error);
