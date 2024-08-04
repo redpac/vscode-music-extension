@@ -11,7 +11,8 @@
   ],
   "activationEvents": [
     "onCommand:lofi-mix.startSession",
-    "onView:lofiMixPlayer"
+    "onView:lofiMixPlayer",
+    "onView:lofiMixPlayer2"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -35,6 +36,13 @@
         {
           "type": "webview",
           "id": "lofiMixPlayer",
+          "name": "Lofi Mix Player"
+        }
+      ],
+      "explorer": [
+        {
+          "type": "webview",
+          "id": "lofiMixPlayer2",
           "name": "Lofi Mix Player"
         }
       ]

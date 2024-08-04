@@ -18,7 +18,8 @@ function activate(context) {
 	const lofiMixViewProvider = new LofiMixViewProvider(context.extensionUri)
 
 	context.subscriptions.push(
-		vscode.window.registerWebviewViewProvider("lofiMixPlayer", lofiMixViewProvider)
+		vscode.window.registerWebviewViewProvider("lofiMixPlayer", lofiMixViewProvider),
+		vscode.window.registerWebviewViewProvider("lofiMixPlayer2", lofiMixViewProvider)
 	)
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
@@ -26,7 +27,8 @@ function activate(context) {
 	const disposable = vscode.commands.registerCommand('lofi-mix.startSession', function () {
 		// The code you place here will be executed every time your command is executed
 		vscode.commands.executeCommand('lofiMixPlayer.focus');
-		
+		vscode.commands.executeCommand('lofiMixPlayer2.focus');
+
 	});
 
 	context.subscriptions.push(disposable);
