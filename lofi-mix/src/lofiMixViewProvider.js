@@ -3,8 +3,15 @@ const fs = require('fs');
 const path = require('path');
 
 class LofiMixViewProvider {
-    constructor(extensionUri) {
+    constructor(extensionUri, context) {
         this._extensionUri = extensionUri;
+        this._context = context;
+        this._view = null;
+        this._audioState = this._context.globalState.get('audioState', {
+            currentTrack: 0,
+            currentTime: 0,
+            isPlaying: false
+        })
     }
 
     resolveWebviewView(webviewView) {
