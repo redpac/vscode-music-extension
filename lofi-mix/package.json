@@ -12,6 +12,8 @@
   },
   "bugs": "https://github.com/chinmaykhamkar/vscode-lofi-mix/issues",
   "publisher": "chinmaykhamkar",
+  "license": "MIT",
+  "icon": "./media/ext-logo.jpeg",
   "categories": [
     "Other"
   ],
