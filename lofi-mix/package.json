@@ -6,6 +6,12 @@
   "engines": {
     "vscode": "^1.91.0"
   },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/chinmaykhamkar/vscode-lofi-mix"
+  },
+  "bugs": "https://github.com/chinmaykhamkar/vscode-lofi-mix/issues",
+  "publisher": "chinmaykhamkar",
   "categories": [
     "Other"
   ],
