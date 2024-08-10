@@ -15,6 +15,5 @@ A simple vs code extension for those who enjoy listening to lofi music during co
 - To prevent this, drag this to the right side of VS code for a fixed and continous session
 
 ## Screenshots
-
-
+![Screenshot](./lofi-mix/media/screenshot.png)
 
