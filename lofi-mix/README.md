@@ -16,5 +16,6 @@ A simple vs code extension for those who enjoy listening to lofi music during co
 
 
 ## Screenshots
+![screenshot](https://github.com/user-attachments/assets/1bf55e49-5867-432f-8789-a91f644145ab)
 
 
