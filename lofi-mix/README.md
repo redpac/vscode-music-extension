@@ -16,5 +16,5 @@ A simple vs code extension for those who enjoy listening to lofi music during co
 
 
 ## Screenshots
-![Screenshot](./media/screenshot.png)
+
 
