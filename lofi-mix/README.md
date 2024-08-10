@@ -17,5 +17,4 @@ A simple vs code extension for those who enjoy listening to lofi music during co
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 

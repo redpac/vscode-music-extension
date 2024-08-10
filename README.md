@@ -14,5 +14,7 @@ A simple vs code extension for those who enjoy listening to lofi music during co
 - Initially the music player view is attached with the explorer side navbar of VS code so when a user switches side nav tabs, the music session stop
 - To prevent this, drag this to the right side of VS code for a fixed and continous session
 
+## Screenshots
+
 
 
