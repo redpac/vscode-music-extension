@@ -3,6 +3,8 @@
 
 A simple vs code extension for those who enjoy listening to lofi music during coding 👨🏽‍💻
 
+Extenstion Link -> [Lofi-mix](https://marketplace.visualstudio.com/items?itemName=chinmaykhamkar.lofi-mix)
+
 
 
 ## Installation
