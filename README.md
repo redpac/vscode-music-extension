@@ -17,4 +17,6 @@ A simple vs code extension for those who enjoy listening to lofi music during co
 ## Screenshots
 ![screenshot](https://github.com/user-attachments/assets/1e6672b3-6f2b-444c-9cac-a399510ed151)
 
+## Improvements
+- Save mp3 files on cloud and play audio via there instead of local mp3 files
 
