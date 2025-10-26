@@ -72,7 +72,7 @@ class LofiMixViewProvider {
             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
         </head>
         <body>
-            <h1>Lofi Mix</h1>
+            <h1>Musiquita</h1>
             <div id="track-list">
                 ${tracks.map((track, index) => `
                     <div class="track" data-index="${index}" data-uri="${trackUris[index]}">

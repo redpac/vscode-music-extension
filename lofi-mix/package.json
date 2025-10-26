@@ -1,8 +1,8 @@
 {
-  "name": "lofi-mix",
-  "displayName": "lofi-mix",
-  "description": "vs code extension to play lofi music while coding",
-  "version": "1.1.1",
+  "name": "music-player",
+  "displayName": "music-player",
+  "description": "vs code extension to play any music while coding",
+  "version": "1.1.2",
   "engines": {
     "vscode": "^1.91.0"
   },
@@ -11,7 +11,7 @@
     "url": "https://github.com/chinmaykhamkar/vscode-lofi-mix"
   },
   "bugs": "https://github.com/chinmaykhamkar/vscode-lofi-mix/issues",
-  "publisher": "chinmaykhamkar",
+  "publisher": "redp4c",
   "license": "MIT",
   "icon": "ext-logo.jpeg",
   "categories": [
@@ -71,6 +71,6 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "lofi-mix": "file:"
+    
   }
 }
