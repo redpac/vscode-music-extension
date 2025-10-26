@@ -17,6 +17,11 @@
   "categories": [
     "Other"
   ],
+  "activationEvents": [
+    "onCommand:lofi-mix.startSession",
+    "onView:lofiMixPlayer",
+    "onView:lofiMixPlayer2"
+  ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
