@@ -1,15 +1,13 @@
 ﻿
-# Lofi Mix VS Code Extension
+# Frutiger Aero music player VSC extension
 
-A simple vs code extension for those who enjoy listening to lofi music during coding 👨🏽‍💻
-
-Extenstion Link -> [Lofi-mix](https://marketplace.visualstudio.com/items?itemName=chinmaykhamkar.lofi-mix)
+A simple vs code extension for those who enjoy listening to frutiger aero music during coding
 
 
 
 ## Installation
 
-- Open your VS code and search for lofi-mix and install it
+- Open your VS code and search for music-player and install it
 - After installing it, open command pallate with `Ctrl+Shift+P` on Windows/Linux or `Cmd(⌘)+Shift+P` on MacOS
 - Type in `Lofi Mix:Start lofi mix session` in the command pallate bar to see a music player at bottom left of your screen
 - You can drag this section to the right side of your VS code for fixed viewing
@@ -21,4 +19,5 @@ Extenstion Link -> [Lofi-mix](https://marketplace.visualstudio.com/items?itemNam
 
 ## Improvements
 - Save mp3 files on cloud and play audio via there instead of local mp3 files
+
 
