@@ -17,11 +17,6 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:lofi-mix.startSession",
-    "onView:lofiMixPlayer",
-    "onView:lofiMixPlayer2"
-  ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
@@ -33,25 +28,25 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "lofiMixView",
-          "title": "Lofi Mix",
+          "id": "FrutigerView",
+          "title": "Frutiger Aero",
           "icon": "./media/logo.png"
         }
       ]
     },
     "views": {
-      "lofiMixView": [
+      "FrutigerView": [
         {
           "type": "webview",
-          "id": "lofiMixPlayer",
-          "name": "Lofi Mix Player"
+          "id": "FrutigerPlayer",
+          "name": "Player"
         }
       ],
       "explorer": [
         {
           "type": "webview",
-          "id": "lofiMixPlayer2",
-          "name": "Lofi Mix Player"
+          "id": "FrutigerPlayer2",
+          "name": "Player"
         }
       ]
     }

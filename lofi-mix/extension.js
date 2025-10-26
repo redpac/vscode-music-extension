@@ -13,21 +13,21 @@ function activate(context) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "lofi-mix" is now active!!');
+	console.log('Congratulations, your extension "music-player" is now active!!');
 
 	const lofiMixViewProvider = new LofiMixViewProvider(context.extensionUri, context)
 
 	context.subscriptions.push(
-		vscode.window.registerWebviewViewProvider("lofiMixPlayer", lofiMixViewProvider),
-		vscode.window.registerWebviewViewProvider("lofiMixPlayer2", lofiMixViewProvider)
+		vscode.window.registerWebviewViewProvider("FrutigerPlayer", lofiMixViewProvider),
+		vscode.window.registerWebviewViewProvider("FrutigerPlayer2", lofiMixViewProvider)
 	)
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
 	const disposable = vscode.commands.registerCommand('lofi-mix.startSession', function () {
 		// The code you place here will be executed every time your command is executed
-		vscode.commands.executeCommand('lofiMixPlayer.focus');
-		vscode.commands.executeCommand('lofiMixPlayer2.focus');
+		vscode.commands.executeCommand('FrutigerPlayer.focus');
+		vscode.commands.executeCommand('FrutigerPlayer2.focus');
 
 	});
 

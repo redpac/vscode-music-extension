@@ -67,16 +67,16 @@ class LofiMixViewProvider {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Lofi Mix</title>
+            <title>Player</title>
             <link href="${styleUri}" rel="stylesheet">
             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
         </head>
         <body>
-            <h1>Musiquita</h1>
+            <h1></h1>
             <div id="track-list">
                 ${tracks.map((track, index) => `
                     <div class="track" data-index="${index}" data-uri="${trackUris[index]}">
-                        <span class="track-name">${track.replace('.mp3', '')}</span>
+                        <span class="track-name">Frutiger Aero</span>
                     </div>
                 `).join('')}
             </div>
