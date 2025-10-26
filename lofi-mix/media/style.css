@@ -35,7 +35,7 @@ h1 {
 #progress-bar {
     width: 100%;
     height: 5px;
-    background-color: #07B0F2;
+    background-color: rgba(7, 176, 242,0.6);
     margin-bottom: 10px;
     cursor: pointer;
 }
@@ -43,7 +43,7 @@ h1 {
 #progress {
     width: 0;
     height: 100%;
-    background-color: #72A603;
+    background-color: #ffffff;
 }
 
 #time-display {
